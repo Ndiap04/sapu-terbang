@@ -59,7 +59,7 @@ def send_welcome(message):
     log(message,'start')
     #memanggil inline keyboard
     markup = types.InlineKeyboardMarkup()
-    btnContactOwner = types.InlineKeyboardButton('Pamsky.',url='t.me/impamsky')
+    btnContactOwner = types.InlineKeyboardButton('Berdonasi',url='t.me/impamsky')
     
     #assign tata letak keyboard
     markup.row(btnContactOwner)
@@ -68,7 +68,7 @@ def send_welcome(message):
 @bot.message_handler(commands=['logs_donation'])
 def show_bot_version(message):
     log(message,'version')
-    bot.reply_to(message,'===========================\nLOGS DONATION\n===========================\n\n-Kosong\n\n==========================='.format(version))
+    bot.reply_to(message,'===========================\n🔒LOGS DONATION🔒\n===========================\n\n-Kosong\n\n==========================='.format(version))
 
 @bot.message_handler(commands=['groupinfo'])
 def info(message):
