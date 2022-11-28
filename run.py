@@ -79,7 +79,7 @@ def send_help(message):
 @bot.message_handler(commands=['role'])
 def send_role(message):
     log(message,'role')
-    texts = message.text.split(' ')
+    texts = message.text.split('🎃SanJaegar[RPI][FarmingEverydayLv7] mengirim tebakan skor 🇵🇹(2) vs (1)🇺🇾')
     code = texts[1]
     mode = texts[2]
     host = texts[3]
@@ -101,7 +101,7 @@ def send_roletest(message):
     #mengambil data chat
     chat_id=message.chat.id #id group
     
-    texts = message.text.split(' ')
+    texts = message.text.split('🎃SanJaegar[RPI][FarmingEverydayLv7] mengirim tebakan skor 🇵🇹(2) vs (1)🇺🇾')
         
     code = str(texts[1])
     mode = str(texts[2])
