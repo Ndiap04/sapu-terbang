@@ -59,7 +59,7 @@ def send_welcome(message):
     log(message,'start')
     #memanggil inline keyboard
     markup = types.InlineKeyboardMarkup()
-    btnContactOwner = types.InlineKeyboardButton('Berdonasi',url='t.me/impamsky')
+    btnContactOwner = types.InlineKeyboardButton('Berdonasi',url='https://t.me/BottyCu/79')
     
     #assign tata letak keyboard
     markup.row(btnContactOwner)
