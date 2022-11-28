@@ -63,94 +63,12 @@ def send_welcome(message):
     
     #assign tata letak keyboard
     markup.row(btnContactOwner)
-    bot.reply_to(message,'Hallo, Sapu terbang siap mengantar pesan ke Group sebelah. \n/help untuk melihat bantuan.\nKalo masi bingung tanya creator',reply_markup=markup)
+    bot.reply_to(message,'Bot ini Membutuhkan Biaya Untuk Beroperasi Lagi , Kirim Donasi Untuk Mengaktifkannya Kembali... Cek /logs_donation untuk melihat baru berapa yang berdonasi.',reply_markup=markup)
 
-@bot.message_handler(commands=['version'])
+@bot.message_handler(commands=['logs_donation'])
 def show_bot_version(message):
     log(message,'version')
-    bot.reply_to(message,'Sekarang bot di versi\nv{}'.format(version))
-
-@bot.message_handler(commands=['help'])
-def send_help(message):
-    log(message,'help')
-    chat_id=message.chat.id
-    bot.send_message(chat_id,'''List All Command :\n\n/role \<Code\> \<Mode\> \<Host\>\n/list \- Show room list\n/version \- Show current version''',parse_mode='MarkdownV2')
-
-@bot.message_handler(commands=['role'])
-def send_role(message):
-    log(message,'role')
-    texts = message.text.split('🎃SanJaegar[RPI][FarmingEverydayLv7] mengirim tebakan skor 🇵🇹(2) vs (1)🇺🇾')
-    code = texts[1]
-    mode = texts[2]
-    host = texts[3]
-    bot.reply_to(message,'Pesan di kirim ke {} group terdaftar.'.format(totalgc))
-
-    #gc pam
-    bot.send_message(chat_id=-803823202,text='**`{code}` `{code}`\n`{code}` `{code}`**\n☝Click code to copy☝\n\nMode : {mode}\nHost : {host}'.format(code=code,mode=mode,host=host),parse_mode='MarkdownV2')
-    #gc au indo gc
-    #bot.send_message(chat_id=-1001746697467,text='**`{code}` `{code}`\n`{code}` `{code}`**\n☝Click code to copy☝\n\nMode : {mode}\nHost : {host}'.format(code=code,mode=mode,host=host),parse_mode='MarkdownV2')
-    #gc cucing
-    #bot.send_message(chat_id=-1001765155506,text='**`{code}` `{code}`\n`{code}` `{code}`**\n☝Click code to copy☝\n\nMode : {mode}\nHost : {host}'.format(code=code,mode=mode,host=host),parse_mode='MarkdownV2')
-    #gc idn -1001607301547
-    #bot.send_message(chat_id=-1001607301547,text='**`{code}` `{code}`\n`{code}` `{code}`**\n☝Click code to copy☝\n\nMode : {mode}\nHost : {host}'.format(code=code,mode=mode,host=host),parse_mode='MarkdownV2')
-
-@bot.message_handler(commands=['roletest'])
-def send_roletest(message):
-    log(message,'roletest')
-
-    #mengambil data chat
-    chat_id=message.chat.id #id group
-    
-    texts = message.text.split('🎃SanJaegar[RPI][FarmingEverydayLv7] mengirim tebakan skor 🇵🇹(2) vs (1)🇺🇾')
-        
-    code = str(texts[1])
-    mode = str(texts[2])
-    host = str(texts[3])
-
-
-    
-    bot.reply_to(message,'Pesan di kirim ke {} group terdaftar.'.format(totalgc))
-
-    #add code to database
-    query = '''INSERT INTO room(code_room,from_gc,is_public) VALUES('{code}','{chat_id}','0')'''.format(code=code,chat_id=chat_id)
-    run_query(query)
-
-    #gc pam
-    bot.send_message(chat_id=-803823202,text='**`{code}` `{code}` `{code}`\n`{code}` `{code}` `{code}` \n`{code}` `{code}` `{code}`**\n☝Click code to copy☝\n\nMode : {mode}\nHost : {host}'.format(code=code,mode=mode,host=host),parse_mode='MarkdownV2')
-    #bot.send_message(chat_id=-803823202,text='**`{code}`**\n☝Click code to copy☝\n\nMode : {mode}\nHost : {host}'.format(code=code,mode=mode,host=host),parse_mode='MarkdownV2')    
-
-@bot.message_handler(commands=['register'])
-def register(message):
-    log(message,'register')
-    #mengambil data chat
-    chat_id=message.chat.id #id group
-    
-    #check id if has registered
-    conn = sqlite3.connect('database.db')
-    cur = conn.cursor()
-    data = cur.execute('''
-        SELECT * FROM "group" where id_gc="{chat_id}"
-    '''.format(chat_id=chat_id))
-    if data.fetchone():
-        print("Record ada")
-        #for row in data:
-        #   print('=============1')
-        #    print(row)
-        #    print('=============2')
-        bot.send_message(chat_id,'Group sudah terdaftar sebelumnya')
-        
-    else:
-        print("Record {} tidak ada dalam database")
-        nama_gc = message.chat.title
-
-        #if not register inserting query database
-        query = 'INSERT INTO "group" (id_gc,nama_gc) values({chat_id},"{nama_gc}");'.format(chat_id=chat_id,nama_gc=nama_gc)
-        run_query(query)
-        print("Record {} berhasil di registrasi dalam database")
-
-        #send massage if succes
-        bot.send_message(chat_id,'Group ID : {} berhasil di daftarkan'.format(chat_id))
-    conn.close()
+    bot.reply_to(message,'===========================\nLOGS DONATION\n===========================\n\n-Kosong\n\n==========================='.format(version))
 
 @bot.message_handler(commands=['groupinfo'])
 def info(message):
